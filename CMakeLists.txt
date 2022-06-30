@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(cr-cc-top)
+project(prisoner)
 
 add_compile_options(-Wall -Wextra -Wpedantic -Wconversion -Wunused -Wcast-qual -Wcast-align=strict -Wduplicated-branches -Wduplicated-cond -Wnull-dereference -Wswitch-enum -Wno-psabi)
 

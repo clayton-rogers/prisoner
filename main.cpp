@@ -5,7 +5,7 @@
 class prison_sim_t
 {
 public:
-    prison_sim_t(int num) : num_pris(num), boxes(num), gen(rd()), distrib(0, num)
+    prison_sim_t(int num) : num_pris(num), boxes(num), gen(rd()), distrib(0, num-1)
     {
         for (int i = 0; i < num_pris; ++i)
         {
@@ -17,18 +17,23 @@ public:
     {
         for (int prisoner_num = 0; prisoner_num < num_pris; ++prisoner_num)
         {
+            bool good = false;
             int box_no = get_rand_box();
 
             for (int i = 0; i < (num_pris / 2); ++i)
             {
+                //std::cout << box_no << std::endl;
                 int value = boxes.at(box_no);
                 if (value == prisoner_num) {
-                    continue;
+                    good = true;
+                    break;
                 } else {
                     box_no = value;
                 }
             }
-            return false;
+            if (!good) {
+                return false;
+            }
         }
         return true;
     }
